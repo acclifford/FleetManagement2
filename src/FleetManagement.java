@@ -87,6 +87,7 @@ public class FleetManagement {
                         printFleet(fleet);
                         break;
                 case 'A':
+                        addBoat(fleet);
                         break;
                 case 'R':
                         break;
@@ -118,7 +119,19 @@ public class FleetManagement {
         System.out.println(" ");
     }
     //-----------------------------------------------------------------------
-    public static void addBoat(){
+    public static void addBoat(ArrayList<Boat>fleet){
+
+        String newBoatData;
+        Boat newBoat = new Boat();
+
+        System.out.println("Please enter the new boat CSV data : ");
+        newBoatData = keyboard.next();
+        System.out.println("Here: " + newBoatData);
+       //-- String[] values = newBoatData.split(",");
+       //-- newBoat = createBoat(values);
+        //--fleet.add(newBoat);
+
+        System.out.println("");
 
     }
     //-----------------------------------------------------------------------
