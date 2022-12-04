@@ -74,10 +74,12 @@ public class FleetManagement {
         String boatName;
         double newExpense;
 
-        do{
-            System.out.println("Welcome to the Fleet Management System");
-            System.out.println("---------------------------------------");
+        System.out.println("");
+        System.out.println("Welcome to the Fleet Management System");
+        System.out.println("---------------------------------------");
+        System.out.println("");
 
+        do{
             System.out.print("(P)rint, (A)dd, (R)emove, (E)xpense, e(X)it : ");
             menuSelection = Character.toUpperCase(keyboard.next().charAt(0));
             switch(menuSelection){
@@ -94,6 +96,8 @@ public class FleetManagement {
                         System.out.println(" ");
                         System.out.println("Exiting the Fleet Management System");
                         break;
+                default:
+                        System.out.println("Invalid menu option, try again");
             }
         } while(menuSelection != 'X');
 
@@ -113,4 +117,9 @@ public class FleetManagement {
 
         System.out.println(" ");
     }
+    //-----------------------------------------------------------------------
+    public static void addBoat(){
+
+    }
+    //-----------------------------------------------------------------------
 }
