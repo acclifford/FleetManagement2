@@ -88,21 +88,26 @@ public class Boat {
 
     }
     //-----------------------------------------------------------------------
-    public String getExpenses(double newExpense) {
+    public double getExpenses() {
 
         //--this may cause some sort of problem when run, so double check
-        double subtractFromPurchasePrice = purchasePrice - expenses;
+        /*double subtractFromPurchasePrice = purchasePrice;
 
-        if(newExpense < purchasePrice){
-            expenses = newExpense;
-            subtractFromPurchasePrice -= expenses;
+        if(newExpense < subtractFromPurchasePrice){
+            this.expenses = newExpense;
+            subtractFromPurchasePrice -= this.expenses;
             return ("Expense authorized, $" + newExpense + " spend.");
         }
         else{
             return ("Expense not permitted, only $" + subtractFromPurchasePrice + "left to spend.");
         }
-
+*/      return this.expenses;
     }
+    //-----------------------------------------------------------------------
+    public void setExpenses(double amountToSpend){
+        this.expenses += amountToSpend;
+    }
+
     //-----------------------------------------------------------------------
 }
 

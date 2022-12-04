@@ -221,11 +221,19 @@ public class FleetManagement {
             System.out.print("How much do you want to spend? : ");
             amountToSpend = keyboard.nextDouble();
 
-            fleet.get(boatIndex - 1).getExpenses(amountToSpend);
+            double subtractFromPurchasePrice = fleet.get(boatIndex - 1).getPurchasePrice() - (fleet.get(boatIndex - 1).getExpenses());
+
+
+            if(subtractFromPurchasePrice > amountToSpend){
+                fleet.get(boatIndex - 1).setExpenses(amountToSpend);
+                System.out.println("");
+            }
+            else{
+                System.out.println("Expense not permitted, only $" + subtractFromPurchasePrice + "left to spend.");
+                System.out.println("");
+            }
 
         }
-
-
     }
     //-----------------------------------------------------------------------
 
