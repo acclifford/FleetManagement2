@@ -104,10 +104,11 @@ public class FleetManagement {
         System.out.println(" ");
         System.out.println("Fleet report:");
 
-        for(int index = 0; index < fleet.size(); index++) {
-            fleet.get(index);
+        //-for(int index = 0; index < fleet.size(); index++) {
+            //-fleet.get(index);
 
-        }
+       //- }
+        System.out.println(fleet);
 
         System.out.println(" ");
     }
