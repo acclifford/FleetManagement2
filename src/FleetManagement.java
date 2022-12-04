@@ -124,12 +124,11 @@ public class FleetManagement {
         String newBoatData;
         Boat newBoat = new Boat();
 
-        System.out.println("Please enter the new boat CSV data : ");
+        System.out.print("Please enter the new boat CSV data : ");
         newBoatData = keyboard.next();
-        System.out.println("Here: " + newBoatData);
-       //-- String[] values = newBoatData.split(",");
-       //-- newBoat = createBoat(values);
-        //--fleet.add(newBoat);
+        String[] values = newBoatData.split(",");
+        newBoat = createBoat(values);
+        fleet.add(newBoat);
 
         System.out.println("");
 
