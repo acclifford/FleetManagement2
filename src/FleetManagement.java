@@ -108,7 +108,14 @@ public class FleetManagement {
     //-----------------------------------------------------------------------
     public static void printFleet(ArrayList<Boat>fleet){
 
-        //--ADD TOTALS
+        double grandTotalPaid = 0;
+        double grandTotalExpenses = 0;
+        int expensesIndex;
+
+        for(expensesIndex = 0; expensesIndex < fleet.size(); expensesIndex++){
+            grandTotalPaid += fleet.get(expensesIndex).getPurchasePrice();
+            grandTotalExpenses += fleet.get(expensesIndex).getExpenses();
+        }
 
         int index = 0;
 
@@ -119,6 +126,9 @@ public class FleetManagement {
             System.out.println(fleet.get(index));
 
        }
+        System.out.println("    Total                                   " +
+                "                     : Paid $ "
+                + grandTotalPaid + " : Spent $ " + grandTotalExpenses);
 
         System.out.println(" ");
     }
