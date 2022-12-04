@@ -74,14 +74,12 @@ public class FleetManagement {
         String boatName;
         double newExpense;
 
-
-        System.out.println("Welcome to the Fleet Management System");
-        System.out.println("---------------------------------------");
-
-        System.out.print("(P)rint, (A)dd, (R)emove, (E)xpense, e(X)it : ");
-        menuSelection = Character.toUpperCase(keyboard.next().charAt(0));
-
         do{
+            System.out.println("Welcome to the Fleet Management System");
+            System.out.println("---------------------------------------");
+
+            System.out.print("(P)rint, (A)dd, (R)emove, (E)xpense, e(X)it : ");
+            menuSelection = Character.toUpperCase(keyboard.next().charAt(0));
             switch(menuSelection){
                 case 'P':
                         printFleet(fleet);
@@ -105,5 +103,12 @@ public class FleetManagement {
 
         System.out.println(" ");
         System.out.println("Fleet report:");
+
+        for(int index = 0; index < fleet.size(); index++) {
+            fleet.get(index);
+
+        }
+
+        System.out.println(" ");
     }
 }
