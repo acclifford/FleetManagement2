@@ -182,26 +182,48 @@ public class FleetManagement {
         }
     }
     //-----------------------------------------------------------------------
-    public static void boatExpenses(ArrayList<Boat>fleet){
+    public static void boatExpenses(ArrayList<Boat>fleet) {
 
         String boatToSpendOn;
         String secondPart;
         String wholeBoatToSpendOn;
+        int index;
+        int boatCounter = 0;
+        String lookingForName;
+        int boatIndex = 0;
+        double amountToSpend;
 
-        System.out.println(" ");
-        System.out.println("Which boat do you want to spend on? : ");
+        System.out.print("Which boat do you want to spend on? : ");
         boatToSpendOn = keyboard.next();
-        secondPart = keyboard.next();
         boatToSpendOn = boatToSpendOn.toLowerCase();
         String firstLetter = boatToSpendOn.substring(0, 1).toUpperCase();
         String remainingLetters = boatToSpendOn.substring(1);
         boatToSpendOn = firstLetter + remainingLetters;
-        secondPart = secondPart.toLowerCase();
-        String firstLetter2 = secondPart.substring(0, 1).toUpperCase();
-        String remainingLetters2 = secondPart.substring(1);
-        secondPart= firstLetter2 + remainingLetters2;
 
-        wholeBoatToSpendOn = boatToSpendOn + " " + secondPart;
+        for (index = 0; index < fleet.size(); index++) {
+            lookingForName = fleet.get(index).getName();
+            if (!lookingForName.equals(boatToSpendOn)) {
+                boatCounter = boatCounter;
+            } else {
+                boatCounter++;
+            }
+        }
+
+        if (boatCounter == 0) {
+            System.out.println("Cannot find boat " + boatToSpendOn);
+            System.out.println("");
+        } else {
+            do {
+                lookingForName = fleet.get(boatIndex).getName();
+                boatIndex++;
+            } while (!lookingForName.equals(boatToSpendOn));
+
+            System.out.print("How much do you want to spend? : ");
+            amountToSpend = keyboard.nextDouble();
+
+            fleet.get(boatIndex - 1).getExpenses(amountToSpend);
+
+        }
 
 
     }
