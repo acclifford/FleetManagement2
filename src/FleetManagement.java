@@ -145,24 +145,41 @@ public class FleetManagement {
         String foundName = null;
         String secondPart;
         String wholeBoatName;
+        int boatCounter = 0;
         int index = 0;
         int boatIndex = 0;
 
 
-        System.out.println("Which boat would you like to remove? : ");
-        boatName = keyboard.nextLine();
+        System.out.print("Which boat would you like to remove? : ");
+        boatName = keyboard.next();
+        boatName = boatName.toLowerCase();
+        String firstLetter = boatName.substring(0, 1).toUpperCase();
+        String remainingLetters = boatName.substring(1);
+        boatName = firstLetter + remainingLetters;
 
         for(index = 0; index < fleet.size(); index++){
             lookingForName = fleet.get(index).getName();
             if(!lookingForName.equals(boatName)){
-                System.out.println("Not quite");
+                boatCounter = boatCounter;
             } else{
-                System.out.println("gotcha!");
+                boatCounter++;
             }
         }
 
+        if(boatCounter == 0){
+            System.out.println("Cannot find boat " + boatName);
+            System.out.println("");
+        }
+        else{
+            do{
+                lookingForName = fleet.get(boatIndex).getName();
+                boatIndex++;
+            }while(!lookingForName.equals(boatName));
 
+            fleet.remove(boatIndex - 1 );
 
+            System.out.println("");
+        }
     }
     //-----------------------------------------------------------------------
     public static void boatExpenses(ArrayList<Boat>fleet){
