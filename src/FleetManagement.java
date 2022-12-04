@@ -101,14 +101,15 @@ public class FleetManagement {
     //-----------------------------------------------------------------------
     public static void printFleet(ArrayList<Boat>fleet){
 
+        int index = 0;
+
         System.out.println(" ");
         System.out.println("Fleet report:");
 
-        //-for(int index = 0; index < fleet.size(); index++) {
-            //-fleet.get(index);
+        for( index = 0; index < fleet.size(); index++) {
+            System.out.println(fleet.get(index));
 
-       //- }
-        System.out.println(fleet);
+       }
 
         System.out.println(" ");
     }
