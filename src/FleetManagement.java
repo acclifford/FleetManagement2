@@ -169,6 +169,17 @@ public class FleetManagement {
     //-----------------------------------------------------------------------
     public static void boatExpenses(ArrayList<Boat>fleet){
 
+        String boatToSpendOn;
+
+        System.out.println(" ");
+        System.out.println("Which boat do you want to spend on? : ");
+        boatToSpendOn = keyboard.next();
+        boatToSpendOn = boatToSpendOn.toLowerCase();
+        String firstLetter = boatToSpendOn.substring(0, 1).toUpperCase();
+        String remainingLetters = boatToSpendOn.substring(1);
+        boatToSpendOn = firstLetter + remainingLetters;
+
+
     }
     //-----------------------------------------------------------------------
 
