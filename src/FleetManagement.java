@@ -142,59 +142,26 @@ public class FleetManagement {
 
         String boatName;
         String lookingForName;
+        String foundName = null;
         String secondPart;
         String wholeBoatName;
         int index = 0;
         int boatIndex = 0;
 
-        System.out.print("Which boat would you like to remove? : ");
-        boatName = keyboard.next();
-        secondPart = keyboard.next();
-        boatName = boatName.toLowerCase();
-        String firstLetter = boatName.substring(0, 1).toUpperCase();
-        String remainingLetters = boatName.substring(1);
-        boatName = firstLetter + remainingLetters;
-        secondPart = secondPart.toLowerCase();
-        String firstLetter2 = secondPart.substring(0, 1).toUpperCase();
-        String remainingLetters2 = secondPart.substring(1);
-        secondPart= firstLetter2 + remainingLetters2;
 
-        wholeBoatName = boatName + " " + secondPart;
-        System.out.println(wholeBoatName);
+        System.out.println("Which boat would you like to remove? : ");
+        boatName = keyboard.nextLine();
 
-/*
-        for(index = 0; index < fleet.size(); index++) {
-
+        for(index = 0; index < fleet.size(); index++){
             lookingForName = fleet.get(index).getName();
-            if (!lookingForName.equals(wholeBoatName)){
-                boatIndex++;
+            if(!lookingForName.equals(boatName)){
+                System.out.println("Not quite");
+            } else{
+                System.out.println("gotcha!");
             }
         }
 
-        System.out.println("index: " + boatIndex);
 
-        fleet.remove(index);
-
-
-
-*/
-       /* if (!fleet.contains(boatName)) {
-            System.out.println("Cannot find boat " + boatName);
-        } else {
-            int index = 0;
-            do {
-                if (!(fleet.get(index).getName().equals(boatName))) {
-                    index++;
-                }
-            } while (!(fleet.get(index).getName().equals(boatName)));
-
-
-            fleet.remove(index);
-
-        }
-        */
-
-        //--COME BACK TO THIS
 
     }
     //-----------------------------------------------------------------------
