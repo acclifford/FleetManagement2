@@ -93,6 +93,7 @@ public class FleetManagement {
                         removeBoat(fleet);
                         break;
                 case 'E':
+                        boatExpenses(fleet);
                         break;
                 case 'X':
                         System.out.println(" ");
@@ -162,8 +163,13 @@ public class FleetManagement {
             fleet.remove(index);
 
         }
-
+        //--COME BACK TO THIS
 
     }
     //-----------------------------------------------------------------------
+    public static void boatExpenses(ArrayList<Boat>fleet){
+
+    }
+    //-----------------------------------------------------------------------
+
 }
