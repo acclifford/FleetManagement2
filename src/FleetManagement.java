@@ -90,6 +90,7 @@ public class FleetManagement {
                         addBoat(fleet);
                         break;
                 case 'R':
+                        removeBoat(fleet);
                         break;
                 case 'E':
                         break;
@@ -105,6 +106,8 @@ public class FleetManagement {
     }
     //-----------------------------------------------------------------------
     public static void printFleet(ArrayList<Boat>fleet){
+
+        //--ADD TOTALS
 
         int index = 0;
 
@@ -131,6 +134,34 @@ public class FleetManagement {
         fleet.add(newBoat);
 
         System.out.println("");
+
+    }
+    //-----------------------------------------------------------------------
+    public static void removeBoat(ArrayList<Boat>fleet) {
+
+        String boatName;
+
+        System.out.print("Which boat would you like to remove? : ");
+        boatName = keyboard.next();
+        boatName = boatName.toLowerCase();
+        String firstLetter = boatName.substring(0, 1).toUpperCase();
+        String remainingLetters = boatName.substring(1);
+        boatName = firstLetter + remainingLetters;
+
+        if (!fleet.contains(boatName)) {
+            System.out.println("Cannot find boat " + boatName);
+        } else {
+            int index = 0;
+            do {
+                if (!(fleet.get(index).getName().equals(boatName))) {
+                    index++;
+                }
+            } while (!(fleet.get(index).getName().equals(boatName)));
+            fleet.remove(index);
+
+            fleet.remove(index);
+
+        }
 
 
     }
