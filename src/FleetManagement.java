@@ -141,15 +141,44 @@ public class FleetManagement {
     public static void removeBoat(ArrayList<Boat>fleet) {
 
         String boatName;
+        String lookingForName;
+        String secondPart;
+        String wholeBoatName;
+        int index = 0;
+        int boatIndex = 0;
 
         System.out.print("Which boat would you like to remove? : ");
         boatName = keyboard.next();
+        secondPart = keyboard.next();
         boatName = boatName.toLowerCase();
         String firstLetter = boatName.substring(0, 1).toUpperCase();
         String remainingLetters = boatName.substring(1);
         boatName = firstLetter + remainingLetters;
+        secondPart = secondPart.toLowerCase();
+        String firstLetter2 = secondPart.substring(0, 1).toUpperCase();
+        String remainingLetters2 = secondPart.substring(1);
+        secondPart= firstLetter2 + remainingLetters2;
 
-        if (!fleet.contains(boatName)) {
+        wholeBoatName = boatName + " " + secondPart;
+        System.out.println(wholeBoatName);
+
+/*
+        for(index = 0; index < fleet.size(); index++) {
+
+            lookingForName = fleet.get(index).getName();
+            if (!lookingForName.equals(wholeBoatName)){
+                boatIndex++;
+            }
+        }
+
+        System.out.println("index: " + boatIndex);
+
+        fleet.remove(index);
+
+
+
+*/
+       /* if (!fleet.contains(boatName)) {
             System.out.println("Cannot find boat " + boatName);
         } else {
             int index = 0;
@@ -158,11 +187,13 @@ public class FleetManagement {
                     index++;
                 }
             } while (!(fleet.get(index).getName().equals(boatName)));
-            fleet.remove(index);
+
 
             fleet.remove(index);
 
         }
+        */
+
         //--COME BACK TO THIS
 
     }
@@ -170,14 +201,23 @@ public class FleetManagement {
     public static void boatExpenses(ArrayList<Boat>fleet){
 
         String boatToSpendOn;
+        String secondPart;
+        String wholeBoatToSpendOn;
 
         System.out.println(" ");
         System.out.println("Which boat do you want to spend on? : ");
         boatToSpendOn = keyboard.next();
+        secondPart = keyboard.next();
         boatToSpendOn = boatToSpendOn.toLowerCase();
         String firstLetter = boatToSpendOn.substring(0, 1).toUpperCase();
         String remainingLetters = boatToSpendOn.substring(1);
         boatToSpendOn = firstLetter + remainingLetters;
+        secondPart = secondPart.toLowerCase();
+        String firstLetter2 = secondPart.substring(0, 1).toUpperCase();
+        String remainingLetters2 = secondPart.substring(1);
+        secondPart= firstLetter2 + remainingLetters2;
+
+        wholeBoatToSpendOn = boatToSpendOn + " " + secondPart;
 
 
     }
