@@ -84,6 +84,7 @@ public class FleetManagement {
         do{
             switch(menuSelection){
                 case 'P':
+                        printFleet(fleet);
                         break;
                 case 'A':
                         break;
@@ -100,4 +101,9 @@ public class FleetManagement {
 
     }
     //-----------------------------------------------------------------------
+    public static void printFleet(ArrayList<Boat>fleet){
+
+        System.out.println(" ");
+        System.out.println("Fleet report:");
+    }
 }
