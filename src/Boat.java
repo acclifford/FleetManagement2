@@ -54,7 +54,7 @@ public class Boat {
     //-----------------------------------------------------------------------
     public void setName(String name){
 
-        //--if the name needs to be reset, this method can reset the name of the object
+        //--if the name needs to be set, this method can set the name of the object
         this.name = name;
     }
     //-----------------------------------------------------------------------
@@ -67,7 +67,7 @@ public class Boat {
     //-----------------------------------------------------------------------
     public void setManufacturer(int manufacturer){
 
-        //--if the manufacturer needs to be reset, this method can reset the manufacturer of the object
+        //--if the manufacturer needs to be set, this method can set the manufacturer of the object
         this.manufacturer = manufacturer;
     }
 
@@ -80,7 +80,7 @@ public class Boat {
     //-----------------------------------------------------------------------
     public void setMakeAndModel(String makeAndModel){
 
-        //--if the make and model needs to be reset, this method can reset the make and model of the object
+        //--if the make and model needs to be set, this method can set the make and model of the object
         this.makeAndModel = makeAndModel;
     }
     //-----------------------------------------------------------------------
@@ -92,7 +92,7 @@ public class Boat {
     //-----------------------------------------------------------------------
     public void setLength(int length){
 
-        //--if the length needs to be reset, this method can reset the length of the object
+        //--if the length needs to be set, this method can set the length of the object
         this.length = length;
     }
 
@@ -105,7 +105,7 @@ public class Boat {
     //-----------------------------------------------------------------------
     public void setPurchasePrice(int purchasePrice){
 
-        //--if the purchase price needs to be reset, this method can reset the purchase price of the object
+        //--if the purchase price needs to be set, this method can set the purchase price of the object
         this.purchasePrice = purchasePrice;
 
     }
@@ -118,7 +118,7 @@ public class Boat {
     //-----------------------------------------------------------------------
     public void setExpenses(double amountToSpend){
 
-        //--if the expenses need to be reset, this method can reset the expenses of the object
+        //--if the expenses need to be set, this method can set the expenses of the object
         this.expenses += amountToSpend;
     }
 
