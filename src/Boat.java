@@ -41,7 +41,7 @@ public class Boat {
 
         //--This String will be printed when toString is called
         return ("    " + theType + " " + getName() + "                                 "
-                + getManufacturer() + " " + getMakeAndModel() + "  :  Paid $ "
+                + getManufacturer() + " " + getMakeAndModel() + "  " + getLength() +"' :  Paid $ "
                 + getPurchasePrice() + "  :  Spent $     " + expenses);
     }
 
