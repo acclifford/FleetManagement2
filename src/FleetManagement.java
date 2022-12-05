@@ -154,25 +154,44 @@ public class FleetManagement {
         String lookingForName;
         String foundName = null;
         String secondPart;
-        String wholeBoatName;
+        String wholeBoatName = null;
         int boatCounter = 0;
         int index = 0;
         int boatIndex = 0;
+        int stringIndex = 0;
+        int nameIndex = 0;
 
         keyboard.nextLine();
 
 
         System.out.print("Which boat would you like to remove? : ");
         boatName = keyboard.nextLine();
+        //--let's play with something
+        String[] boatNameArray = boatName.split(" ");
+        for(stringIndex = 0; stringIndex <boatNameArray.length; stringIndex++){
+            boatNameArray[stringIndex] = boatNameArray[stringIndex].toLowerCase();
+            String firstLetter = boatNameArray[stringIndex].substring(0, 1).toUpperCase();
+            String remainingLetters = boatNameArray[stringIndex].substring(1);
+            boatNameArray[stringIndex] = firstLetter + remainingLetters;
+        }
+        wholeBoatName = boatNameArray[0];
+        for(nameIndex = 1; nameIndex <boatNameArray.length; nameIndex++){
+            wholeBoatName += " ";
+            wholeBoatName += boatNameArray[nameIndex];
+
+        }
+     /*
         boatName = boatName.toLowerCase();
         String firstLetter = boatName.substring(0, 1).toUpperCase();
         String remainingLetters = boatName.substring(1);
         boatName = firstLetter + remainingLetters;
-        System.out.println(boatName);
+
+      */
+
 
         for(index = 0; index < fleet.size(); index++){
             lookingForName = fleet.get(index).getName();
-            if(!lookingForName.equals(boatName)){
+            if(!lookingForName.equals(wholeBoatName)){
                 boatCounter = boatCounter;
             } else{
                 boatCounter++;
@@ -180,14 +199,14 @@ public class FleetManagement {
         }
 
         if(boatCounter == 0){
-            System.out.println("Cannot find boat " + boatName);
+            System.out.println("Cannot find boat " + wholeBoatName);
             System.out.println("");
         }
         else{
             do{
                 lookingForName = fleet.get(boatIndex).getName();
                 boatIndex++;
-            }while(!lookingForName.equals(boatName));
+            }while(!lookingForName.equals(wholeBoatName));
 
             fleet.remove(boatIndex - 1 );
 
