@@ -9,8 +9,8 @@ import java.io.IOException;
 public class FleetManagement {
 
     public static final Scanner keyboard = new Scanner(System.in);
-    public static final int MAX_BOAT_LENGTH = 100;
-    public static final double MAX_PURCHASE_PRICE = 1000000;
+    public static final int ZERO = 0;
+    public static final int SINGLE = 1;
 
     enum type {POWER, SAILING}
 
@@ -55,8 +55,8 @@ public class FleetManagement {
 
         type theType;
 
-        theType = type.valueOf(attributes[0]);
-        String name = attributes[1];
+        theType = type.valueOf(attributes[ZERO]);
+        String name = attributes[SINGLE];
         int manufacturer = Integer.parseInt(attributes[2]);
         String makeAndModel = attributes[3];
         int length = Integer.parseInt(attributes[4]);
@@ -69,7 +69,7 @@ public class FleetManagement {
 
         char menuSelection;
         int index;
-        int index2 = 0;
+        int index2 = ZERO;
         Boat myBoat = new Boat();
         String boatName;
         double newExpense;
@@ -108,21 +108,21 @@ public class FleetManagement {
     //-----------------------------------------------------------------------
     public static void printFleet(ArrayList<Boat>fleet){
 
-        double grandTotalPaid = 0;
-        double grandTotalExpenses = 0;
+        double grandTotalPaid = ZERO;
+        double grandTotalExpenses = ZERO;
         int expensesIndex;
 
-        for(expensesIndex = 0; expensesIndex < fleet.size(); expensesIndex++){
+        for(expensesIndex = ZERO; expensesIndex < fleet.size(); expensesIndex++){
             grandTotalPaid += fleet.get(expensesIndex).getPurchasePrice();
             grandTotalExpenses += fleet.get(expensesIndex).getExpenses();
         }
 
-        int index = 0;
+        int index = ZERO;
 
         System.out.println(" ");
         System.out.println("Fleet report:");
 
-        for( index = 0; index < fleet.size(); index++) {
+        for( index = ZERO; index < fleet.size(); index++) {
             System.out.println(fleet.get(index));
 
        }
@@ -152,14 +152,12 @@ public class FleetManagement {
 
         String boatName;
         String lookingForName;
-        String foundName = null;
-        String secondPart;
         String wholeBoatName = null;
-        int boatCounter = 0;
-        int index = 0;
-        int boatIndex = 0;
-        int stringIndex = 0;
-        int nameIndex = 0;
+        int boatCounter = ZERO;
+        int index = ZERO;
+        int boatIndex = ZERO;
+        int stringIndex = ZERO;
+        int nameIndex = ZERO;
 
         keyboard.nextLine();
 
@@ -168,28 +166,20 @@ public class FleetManagement {
         boatName = keyboard.nextLine();
         //--let's play with something
         String[] boatNameArray = boatName.split(" ");
-        for(stringIndex = 0; stringIndex <boatNameArray.length; stringIndex++){
+        for(stringIndex = ZERO; stringIndex <boatNameArray.length; stringIndex++){
             boatNameArray[stringIndex] = boatNameArray[stringIndex].toLowerCase();
-            String firstLetter = boatNameArray[stringIndex].substring(0, 1).toUpperCase();
+            String firstLetter = boatNameArray[stringIndex].substring(ZERO, 1).toUpperCase();
             String remainingLetters = boatNameArray[stringIndex].substring(1);
             boatNameArray[stringIndex] = firstLetter + remainingLetters;
         }
-        wholeBoatName = boatNameArray[0];
-        for(nameIndex = 1; nameIndex <boatNameArray.length; nameIndex++){
+        wholeBoatName = boatNameArray[ZERO];
+        for(nameIndex = SINGLE; nameIndex <boatNameArray.length; nameIndex++){
             wholeBoatName += " ";
             wholeBoatName += boatNameArray[nameIndex];
 
         }
-     /*
-        boatName = boatName.toLowerCase();
-        String firstLetter = boatName.substring(0, 1).toUpperCase();
-        String remainingLetters = boatName.substring(1);
-        boatName = firstLetter + remainingLetters;
 
-      */
-
-
-        for(index = 0; index < fleet.size(); index++){
+        for(index = ZERO; index < fleet.size(); index++){
             lookingForName = fleet.get(index).getName();
             if(!lookingForName.equals(wholeBoatName)){
                 boatCounter = boatCounter;
@@ -198,7 +188,7 @@ public class FleetManagement {
             }
         }
 
-        if(boatCounter == 0){
+        if(boatCounter == ZERO){
             System.out.println("Cannot find boat " + wholeBoatName);
             System.out.println("");
         }
@@ -208,7 +198,7 @@ public class FleetManagement {
                 boatIndex++;
             }while(!lookingForName.equals(wholeBoatName));
 
-            fleet.remove(boatIndex - 1 );
+            fleet.remove(boatIndex - SINGLE );
 
             System.out.println("");
         }
@@ -217,40 +207,51 @@ public class FleetManagement {
     public static void boatExpenses(ArrayList<Boat>fleet) {
 
         String boatToSpendOn;
-        String secondPart;
         String wholeBoatToSpendOn;
         int index;
-        int boatCounter = 0;
+        int boatCounter = ZERO;
         String lookingForName;
-        int boatIndex = 0;
+        int boatIndex = ZERO;
         double amountToSpend;
+        int stringIndex;
+        int nameIndex;
 
         keyboard.nextLine();
 
         System.out.print("Which boat do you want to spend on? : ");
         boatToSpendOn = keyboard.nextLine();
-        boatToSpendOn = boatToSpendOn.toLowerCase();
-        String firstLetter = boatToSpendOn.substring(0, 1).toUpperCase();
-        String remainingLetters = boatToSpendOn.substring(1);
-        boatToSpendOn = firstLetter + remainingLetters;
 
-        for (index = 0; index < fleet.size(); index++) {
+        String[] boatNameArray = boatToSpendOn.split(" ");
+        for(stringIndex = ZERO; stringIndex <boatNameArray.length; stringIndex++) {
+            boatNameArray[stringIndex] = boatNameArray[stringIndex].toLowerCase();
+            String firstLetter = boatNameArray[stringIndex].substring(ZERO, 1).toUpperCase();
+            String remainingLetters = boatNameArray[stringIndex].substring(1);
+            boatNameArray[stringIndex] = firstLetter + remainingLetters;
+        }
+        wholeBoatToSpendOn = boatNameArray[ZERO];
+        for(nameIndex = SINGLE; nameIndex <boatNameArray.length; nameIndex++) {
+            wholeBoatToSpendOn += " ";
+            wholeBoatToSpendOn += boatNameArray[nameIndex];
+        }
+
+
+        for (index = ZERO; index < fleet.size(); index++) {
             lookingForName = fleet.get(index).getName();
-            if (!lookingForName.equals(boatToSpendOn)) {
+            if (!lookingForName.equals(wholeBoatToSpendOn)) {
                 boatCounter = boatCounter;
             } else {
                 boatCounter++;
             }
         }
 
-        if (boatCounter == 0) {
-            System.out.println("Cannot find boat " + boatToSpendOn);
+        if (boatCounter == ZERO) {
+            System.out.println("Cannot find boat " + wholeBoatToSpendOn);
             System.out.println("");
         } else {
             do {
                 lookingForName = fleet.get(boatIndex).getName();
                 boatIndex++;
-            } while (!lookingForName.equals(boatToSpendOn));
+            } while (!lookingForName.equals(wholeBoatToSpendOn));
 
             System.out.print("How much do you want to spend? : ");
             amountToSpend = keyboard.nextDouble();
@@ -260,10 +261,12 @@ public class FleetManagement {
 
             if(subtractFromPurchasePrice > amountToSpend){
                 fleet.get(boatIndex - 1).setExpenses(amountToSpend);
+                System.out.println("Expense authorized, $" + fleet.get(boatIndex - 1).getExpenses() + " spent.");
                 System.out.println("");
             }
             else{
-                System.out.println("Expense not permitted, only $" + subtractFromPurchasePrice + "left to spend.");
+                System.out.printf("Expense not permitted, only $%.2f", subtractFromPurchasePrice);
+                System.out.println(" left to spend.");
                 System.out.println("");
             }
 
