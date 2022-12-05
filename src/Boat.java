@@ -11,6 +11,9 @@ public class Boat {
     public double expenses;
 
     public Boat(){
+
+        //--This is a default constructor for a Boat object
+        //--It sets all the objects to either zero or null as default
         theType = null;
         name = null;
         manufacturer = 0;
@@ -21,6 +24,9 @@ public class Boat {
     }
     //-----------------------------------------------------------------------
     public Boat(FleetManagement.type theType, String name, int manufacturer, String makeAndModel, int length, double purchasePrice) {
+
+        //--This constructor changes the values of the Boat object upon input of attributes
+        //--expenses will stay at zero for now
         this.theType = theType;
         this.name = name;
         this.manufacturer = manufacturer;
@@ -32,79 +38,87 @@ public class Boat {
 
     //-----------------------------------------------------------------------
     public String toString() {
+
+        //--This String will be printed when toString is called
         return ("    " + theType + " " + getName() + "                                 "
                 + getManufacturer() + " " + getMakeAndModel() + "  :  Paid $ "
                 + getPurchasePrice() + "  :  Spent $     " + expenses);
     }
 
     //-----------------------------------------------------------------------
-
-    //-----------------------------------------------------------------------
-    public void setType(){
-
-    }
-    //-----------------------------------------------------------------------
     public String getName() {
+
+        //--if the name is needed, this method can send the name of the boat object
         return this.name;
     }
     //-----------------------------------------------------------------------
     public void setName(String name){
+
+        //--if the name needs to be reset, this method can reset the name of the object
         this.name = name;
     }
     //-----------------------------------------------------------------------
     public int getManufacturer() {
+
+        //--if the manufacturer is needed, this method can send the manufacturer of the boat object
         return this.manufacturer;
     }
 
     //-----------------------------------------------------------------------
     public void setManufacturer(int manufacturer){
+
+        //--if the manufacturer needs to be reset, this method can reset the manufacturer of the object
         this.manufacturer = manufacturer;
     }
 
     //-----------------------------------------------------------------------
     public String getMakeAndModel() {
+
+        //--if the make and model is needed, this method can send the make and model of the boat object
         return this.makeAndModel;
     }
     //-----------------------------------------------------------------------
     public void setMakeAndModel(String makeAndModel){
+
+        //--if the make and model needs to be reset, this method can reset the make and model of the object
         this.makeAndModel = makeAndModel;
     }
     //-----------------------------------------------------------------------
     public int getLength() {
+
+        //--if the length is needed, this method can send the length of the boat object
         return this.length;
     }
     //-----------------------------------------------------------------------
     public void setLength(int length){
+
+        //--if the length needs to be reset, this method can reset the length of the object
         this.length = length;
     }
 
     //-----------------------------------------------------------------------
     public double getPurchasePrice() {
+
+        //--if the purchase price is needed, this method can send the purchase of the boat object
         return purchasePrice;
     }
     //-----------------------------------------------------------------------
-    public void setPurchasePrice(){
+    public void setPurchasePrice(int purchasePrice){
 
+        //--if the purchase price needs to be reset, this method can reset the purchase price of the object
+        this.purchasePrice = purchasePrice;
 
     }
     //-----------------------------------------------------------------------
     public double getExpenses() {
 
-        //--this may cause some sort of problem when run, so double check
-        /*double subtractFromPurchasePrice = purchasePrice;
-
-        if(newExpense < subtractFromPurchasePrice){
-            this.expenses = newExpense;
-            subtractFromPurchasePrice -= this.expenses;
-            return ("Expense authorized, $" + newExpense + " spend.");
-        }
-        else{
-            return ("Expense not permitted, only $" + subtractFromPurchasePrice + "left to spend.");
-        }
-*/      return this.expenses;
+        //--if the expenses are needed, this method can send the expenses of the boat object
+        return this.expenses;
     }
     //-----------------------------------------------------------------------
     public void setExpenses(double amountToSpend){
+
+        //--if the expenses need to be reset, this method can reset the expenses of the object
         this.expenses += amountToSpend;
     }
 
