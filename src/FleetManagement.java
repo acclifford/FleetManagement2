@@ -159,13 +159,16 @@ public class FleetManagement {
         int index = 0;
         int boatIndex = 0;
 
+        keyboard.nextLine();
+
 
         System.out.print("Which boat would you like to remove? : ");
-        boatName = keyboard.next();
+        boatName = keyboard.nextLine();
         boatName = boatName.toLowerCase();
         String firstLetter = boatName.substring(0, 1).toUpperCase();
         String remainingLetters = boatName.substring(1);
         boatName = firstLetter + remainingLetters;
+        System.out.println(boatName);
 
         for(index = 0; index < fleet.size(); index++){
             lookingForName = fleet.get(index).getName();
@@ -203,8 +206,10 @@ public class FleetManagement {
         int boatIndex = 0;
         double amountToSpend;
 
+        keyboard.nextLine();
+
         System.out.print("Which boat do you want to spend on? : ");
-        boatToSpendOn = keyboard.next();
+        boatToSpendOn = keyboard.nextLine();
         boatToSpendOn = boatToSpendOn.toLowerCase();
         String firstLetter = boatToSpendOn.substring(0, 1).toUpperCase();
         String remainingLetters = boatToSpendOn.substring(1);
